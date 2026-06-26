@@ -16,38 +16,43 @@ predicting the likelihood of purchasing the Wellness Tourism Package. .
 
 # User input
 age = st.number_input("Age", min_value=18, max_value=100, value=30)
-typeofcontact = st.selectbox("Type of Contact", ["Company Invited", "Self Enquiry"])
-citytier = st.selectbox("City Tier", ["1", "2", "3"])
-gender = st.selectbox("Gender", ["Male", "Female"])
-occupation = st.selectbox("Occupation", ["Freelancer", "Large Business","Small Business","Salaried"])
-Numberofpersonvisiting = st.number_input("Number of People Visiting", min_value=1, max_value=5, value=2)
-preferredpropertystar = st.selectbox("Preferred Property Star", ["3", "4", "5"])
+TypeofContact = st.selectbox("Type of Contact", ["Company Invited", "Self Enquiry"])
+CityTier = st.selectbox("City Tier", ["1", "2", "3"])
+Gender = st.selectbox("Gender", ["Male", "Female"])
+Occupation = st.selectbox("Occupation", ["Freelancer", "Large Business","Small Business","Salaried"])
+NumberOfPersonVisiting = st.number_input("Number of People Visiting", min_value=1, max_value=5, value=2)
+NumberOfFollowups=st.number_input("No of Followups",min_value=1, max_value=10,value=2)
+PreferredPropertyStar = st.selectbox("Preferred Property Star", ["3", "4", "5"])
 MaritalStatus = st.selectbox("Marital Status", ["Married", "Single"])
-numberoftrips = st.number_input("Number of Trips", min_value=1, max_value=22, value=3)
-passport = st.selectbox("Passport", ["Yes", "No"])
-owncar = st.selectbox("Own Car", ["Yes", "No"])
-Numberofchildrenvisiting = st.number_input("Number of Children Visiting", min_value=0, max_value=3, value=0)
+NumberOfTrips = st.number_input("Number of Trips", min_value=1, max_value=22, value=3)
+Passport = st.selectbox("Passport", ["Yes", "No"])
+OwnCar = st.selectbox("Own Car", ["Yes", "No"])
+NumberOfChildrenVisiting = st.number_input("Number of Children Visiting", min_value=0, max_value=3, value=0)
 Designation= st.selectbox("Designation", ["Executive", "AVP","Manager","Senior Manager","VP"])
-monthlyincome = st.number_input("Monthly Income", min_value=1000, max_value=100000, value=50000)
+MonthlyIncome = st.number_input("Monthly Income", min_value=1000, max_value=100000, value=50000)
+DurationOfPitch =st.number_input("Pitch Duration", min_value=5 , max_value=200,value=5)
 Productpitched = st.selectbox("Product Pitched", ["Basic", "Delux", "King","Standard","Super Delux"])
-
+PitchSatisfactionScore=st.selectbox("PitchSatisfactionScore",["1","2","3","4","5"])
 # Assemble input into DataFrame
 input_data = pd.DataFrame([{
     'Age': age,
-    'typeofcontact': typeofcontact,
-    'citytier': citytier,
-    'gender': gender,
-    'occupation': occupation,
-    'Numberofpersonvisiting': Numberofpersonvisiting,
-    'preferredpropertystar': preferredpropertystar,
+    'TypeofContact': TypeofContact,
+    'CityTier': CityTier,
+    'Gender': Gender,
+    'Occupation': Occupation,
+    'NumberOfPersonVisiting': NumberOfPersonVisiting,
+    'NumberOfFollowups' : NumberOfFollowups,
+    'PreferredPropertyStar': PreferredPropertyStar,
     'MaritalStatus': MaritalStatus,
-    'numberoftrips': numberoftrips,
-    'passport': passport,
-    'owncar': owncar,
-    'Numberofchildrenvisiting': Numberofchildrenvisiting,
+    'NumberOfTrips': NumberOfTrips,
+    'Passport': Passport,
+    'OwnCar': OwnCar,
+    'NumberOfChildrenVisiting': NumberOfChildrenVisiting,
     'Designation': Designation,
-    'monthlyincome': monthlyincome,
-    'ProductPitched': Productpitched
+    'MonthlyIncome': monthlyincome,
+    'ProductPitched': Productpitched,
+    'DurationOfPitch':DurationOfPitch,
+    'PitchSatisfactionScore': PitchSatisfactionScore
 }])
 
 
