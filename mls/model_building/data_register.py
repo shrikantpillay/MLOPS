@@ -1,6 +1,5 @@
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 from huggingface_hub import HfApi, create_repo
-from google.colab import userdata
 import os
 
 HF_TOKEN = os.environ.get("HF_TOKEN")
@@ -16,6 +15,7 @@ if not HF_TOKEN:
         "HF_TOKEN not found. Set the HF_TOKEN environment variable in CI "
         "or provide it from Colab userdata when running in Colab."
     )
+# ... rest of the code
 repo_id = "shrikantpillay/MLOPS"
 repo_type = "dataset"
 
