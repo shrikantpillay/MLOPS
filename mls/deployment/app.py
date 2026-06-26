@@ -49,7 +49,7 @@ input_data = pd.DataFrame([{
     'OwnCar': OwnCar,
     'NumberOfChildrenVisiting': NumberOfChildrenVisiting,
     'Designation': Designation,
-    'MonthlyIncome': monthlyincome,
+    'MonthlyIncome': MonthlyIncome,
     'ProductPitched': Productpitched,
     'DurationOfPitch':DurationOfPitch,
     'PitchSatisfactionScore': PitchSatisfactionScore
