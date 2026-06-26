@@ -37,27 +37,32 @@ PitchSatisfactionScore=st.selectbox("PitchSatisfactionScore",["1","2","3","4","5
 input_data = pd.DataFrame([{
     'Age': age,
     'TypeofContact': TypeofContact,
-    'CityTier': CityTier,
+    'CityTier': int(CityTier),                # Fixed: Converted to int
     'Gender': Gender,
     'Occupation': Occupation,
     'NumberOfPersonVisiting': NumberOfPersonVisiting,
-    'NumberOfFollowups' : NumberOfFollowups,
-    'PreferredPropertyStar': PreferredPropertyStar,
+    'NumberOfFollowups': NumberOfFollowups,
+    'PreferredPropertyStar': int(PreferredPropertyStar), # Fixed: Converted to int
     'MaritalStatus': MaritalStatus,
     'NumberOfTrips': NumberOfTrips,
-    'Passport': Passport,
-    'OwnCar': OwnCar,
+    'Passport': 1 if Passport == "Yes" else 0,   # Fixed: Map "Yes"/"No" to 1/0
+    'OwnCar': 1 if OwnCar == "Yes" else 0,       # Fixed: Map "Yes"/"No" to 1/0
     'NumberOfChildrenVisiting': NumberOfChildrenVisiting,
     'Designation': Designation,
     'MonthlyIncome': MonthlyIncome,
-    'ProductPitched': Productpitched,
-    'DurationOfPitch':DurationOfPitch,
-    'PitchSatisfactionScore': PitchSatisfactionScore
+    'ProductPitched': Productpitched,           # Match the case used in training
+    'DurationOfPitch': DurationOfPitch,
+    'PitchSatisfactionScore': int(PitchSatisfactionScore) # Fixed: Converted to int
 }])
-
 
 if st.button("Predict Purchasing"):
     prediction = model.predict(input_data)[0]
-    result = "Predict Purchasing" if prediction == 1 else "Customer will purchase"
+    
+    # Fixed: Clarified the output result logic
+    result = "Customer WILL purchase the package" if prediction == 1 else "Customer WILL NOT purchase the package"
+    
     st.subheader("Prediction Result:")
-    st.success(f"The model predicts: **{result}**")
+    if prediction == 1:
+        st.success(f"Result: **{result}**")
+    else:
+        st.warning(f"Result: **{result}**")
